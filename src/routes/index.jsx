@@ -1,14 +1,20 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-// Tidak langsung mengimpor routes di sini
-let router = null;
+import { routes as adminRoutes } from './MainRoutes.jsx';
+import KaryawanRoutes from './KaryawanRoutes.jsx';
+import GuestRoutes from './GuestRoutes.jsx';
 
-export const createAppRouter = async () => {
-  // Impor dinamis untuk memutus siklus
-  const { default: routes } = await import('../routes');
-  router = createBrowserRouter(routes, { basename: '' });
-  return router;
-};
+const routes = [
+  ...adminRoutes,
+  KaryawanRoutes,
+  GuestRoutes,
+];
 
-// Jika tetap ingin ekspor default langsung, bisa berikan nilai sementara
-export default router; // akan diisi nanti
+const router = createBrowserRouter(routes, { basename: '' });
+
+export default router;
+
+
+
+
+
