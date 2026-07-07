@@ -1,26 +1,14 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 
-// routes
-import MainRoutes from './MainRoutes';
-import PagesRoutes from './PagesRoutes';
-import GuestRoutes from './GuestRoutes';
-import KaryawanRoutes from './KaryawanRoutes';
+// Tidak langsung mengimpor routes di sini
+let router = null;
 
-// ==============================|| ROUTING RENDER ||============================== //
+export const createAppRouter = async () => {
+  // Impor dinamis untuk memutus siklus
+  const { default: routes } = await import('../routes');
+  router = createBrowserRouter(routes, { basename: '' });
+  return router;
+};
 
-const router = createBrowserRouter([
-  MainRoutes,
-  PagesRoutes,
-  GuestRoutes,
-  KaryawanRoutes,
-
-  {
-    path: '/',
-    element: <Navigate to="/guest" replace />,
-  },
-], {
-  basename: ''
-});
-
-export default router;
-
+// Jika tetap ingin ekspor default langsung, bisa berikan nilai sementara
+export default router; // akan diisi nanti

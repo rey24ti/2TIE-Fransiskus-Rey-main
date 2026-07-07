@@ -1,7 +1,7 @@
 import { createContext, useState } from 'react';
 import { RouterProvider } from 'react-router-dom';
 import ThemeCustomization from './themes';
-import router from './routes/index';
+import router from './routes'; // ← langsung dari file routes.js
 
 export const TokoContext = createContext();
 
@@ -43,4 +43,3 @@ function App() {
 }
 
 export default App;
-

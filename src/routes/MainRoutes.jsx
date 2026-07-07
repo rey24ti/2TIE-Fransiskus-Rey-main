@@ -898,7 +898,9 @@ const AdminLayout = () => {
   );
 };
 
+// ============================================================
 // ====== ROUTES ======
+// ============================================================
 const routes = [
   {
     path: '/login',
@@ -918,19 +920,20 @@ const routes = [
       { path: 'transaksi', element: <Transaksi /> },
       { path: 'riwayat-transaksi', element: <RiwayatTransaksi /> },
       { path: 'bon-piutang', element: <BonPiutangAdmin /> },
-
       { path: 'laporan-keuntungan', element: <LaporanKeuntungan /> },
       { path: 'laporan-laba-rugi', element: <LaporanLabaRugi /> },
       { path: 'laporan-penjualan', element: <LaporanPenjualan /> },
       { path: 'laporan-inventaris', element: <LaporanInventaris /> },
       { path: 'data-karyawan', element: <ManajemenUser /> },
       { path: 'pelanggan', element: <Pelanggan /> },
-{ path: 'pengaturan-sistem', element: <PengaturanSistem /> },
-
+      { path: 'pengaturan-sistem', element: <PengaturanSistem /> },
       { path: 'rebuild-pages', element: <PagePlaceholder title="Rebuild Pages" /> },
       { index: true, element: <Navigate to="/admin/dashboard" replace /> },
     ],
   },
 ];
 
-export default routes;
+// ====== CREATE ROUTER ======
+import { createBrowserRouter } from 'react-router-dom';
+const router = createBrowserRouter(routes, { basename: '' });
+export default router;
