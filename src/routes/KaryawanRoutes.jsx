@@ -22,9 +22,8 @@ const KaryawanRoutes = {
     { path: 'laporan-barang', element: <LaporanBarangKaryawan /> },
     { path: 'laporan-keuangan', element: <LaporanKeuanganKaryawan /> },
     { path: 'manajemen', element: <ManajemenKaryawan /> },
-    { path: '*', element: <Navigate to="/karyawan" replace /> },
+    // 💡 HAPUS BARIS WILDCARD '*' DI SINI AGAR TIDAK MENELAN RUTE ADMIN
   ],
 };
 
 export default KaryawanRoutes;
-
